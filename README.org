@@ -3,7 +3,7 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 
 ** Guidelines 
 
-#+BEGIN_SRC 
+#+BEGIN_SRC C
 /*
  * MULTILINE comments should be done in the following way:
  */
