@@ -1,12 +1,14 @@
 * day-sh
 Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 
-** Temporary 
+** Guidelines 
 
 #+BEGIN_SRC 
 /*
- * Comments should be done in the following way:
+ * MULTILINE comments should be done in the following way:
  */
+ 
+ /* SINGLE LINE comments should be done like this, using EMACS' "M + ;" /*
 
 /*
  * Function Description:
@@ -18,6 +20,20 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
  * Return Value:
  *    --Insert-- 
  */
+ 
+ int main() { /* Notice the space between ") and {" */
+  if (True){
+    printf("hey");
+  } else if (False) {
+    printf("aaron wonga");
+  } else {
+    printf("haha");
+  }
+ }
+ 
+ /* IF statements that are 1 line should be written on one line; ex: */
+ 
+ if (True) printf("hey");
 #+END_SRC
 
 ** Development Log
