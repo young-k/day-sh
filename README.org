@@ -22,7 +22,7 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
  */
  
  int main() { /* Notice the space between ") and {" */
-  if (True){
+  if (True) {
     printf("hey");
   } else if (False) {
     printf("aaron wonga");
