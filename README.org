@@ -1,7 +1,9 @@
-# day-sh
+* day-sh
 Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 
-```C
+** Temporary 
+
+#+BEGIN_SRC 
 /*
  * Comments should be done in the following way:
  */
@@ -16,4 +18,8 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
  * Return Value:
  *    --Insert-- 
  */
-```
+#+END_SRC
+
+** Development Log
+*** 11/17
+- Set up basic repository, initalized files
