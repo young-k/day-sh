@@ -4,10 +4,10 @@
 #include <unistd.h>
 
 /*
- * Loop:
- *   The basic while loop of the function. 
- *   while(True) is not used so that CTRL+C can be handled by the program.
- *   Deals with parsing input and printing the current working directory.
+ * Function Description:
+ * The basic while loop of the function. 
+ * while(True) is not used so that CTRL+C can be handled by the program.
+ * Deals with parsing input and printing the current working directory.
  */
 void loop() {
   int status;			/* boolean; whether to exit loop or not */
