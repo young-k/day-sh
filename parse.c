@@ -9,30 +9,34 @@
 
 
 char ** parse_input(char *input) {
-	char ** output[count_tokens(input,";")];
-	
+	char **output[count_tokens(input,";")];
+	int counter = 0;
 	//Takes input and parses it
 	input[strlen(input) - 1] = '\0';
 	char *command;
+	char *argray[20];
+
 	command = input;
 	command = strsep(&command, "\n");
 	
-	while (command
+	while (command){
+		argray[counter] = strsep(&command, ";");
+		counter+=1;
+	}
+	argray[counter] = NULL;
+	//return argray; 
+}
 
-	
-				 execlp(
-								}
-
-				 char ** parse_commands(char *commands){
-					 char *argray[15];
-					 int counter = 0;
-					 while (commands) {
-						 argray[counter] = strsep(&commands, " ");
-						 counter++;
-					 }
-					 char temp[1][1];
-					 return temp;
-				 }
+char ** parse_commands(char *commands){
+	char *argray[15];
+	int counter = 0;
+	while (commands) {
+		argray[counter] = strsep(&commands, " ");
+		counter++;
+	}
+	char temp[1][1];
+	return temp;
+}
 
 
   
