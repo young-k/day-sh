@@ -35,7 +35,7 @@ char** parse_inputs (char *) {}
  *   in the string line
  *
  * Arguments:
- *   char * string 
+frCGFXX  *   char * string 
  *   char * delimiter
  *
  * Return:
