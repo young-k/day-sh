@@ -10,10 +10,10 @@
  * char * of a single command line
  *
  * Return Value:
- * alters char* [] of command and argument
+ * char** of command and argument
  *
  */
-void parse_commands (char *) {}
+char** parse_commands (char *) {}
 
 /*
  * Function Description:
@@ -24,10 +24,10 @@ void parse_commands (char *) {}
  * char* of the raw input
  *
  * Return:
- * alters char* [] of commands
+ * char** of commands
  *
  */
-void parse_inputs (char *) {}
+char** parse_inputs (char *) {}
 
 
 

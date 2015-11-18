@@ -3,21 +3,25 @@
 #include <string.h>
 #include <unistd.h>
 
-char* inputs[];
-char* commands[];
-char* parsed_commands[];
+//char* inputs[10];
+//char* commands[10];
+//char* parsed_commands[10];
 
 
-void parse_input(char *input) {
+char ** parse_input(char *input) {
+  char temp[1][1];
+  return temp;
 }
 
-void parse_commands(char *commands){
+char ** parse_commands(char *commands){
   char *argray[15];
   int counter = 0;
   while (commands) {
     argray[counter] = strsep(&commands, " ");
     counter++;
   }
+  char temp[1][1];
+  return temp;
 }
 
 
