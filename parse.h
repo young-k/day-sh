@@ -10,7 +10,7 @@
  *   char * of a single command line
  *
  * Return Value:
- *   char** of command and argument
+ *   char** of command and arguments
  *
  */
 char** parse_commands (char *) {}
