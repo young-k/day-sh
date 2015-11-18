@@ -37,6 +37,12 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 #+END_SRC
 
 ** Development Log
+*** 11/18
+- Young
+  - Added forking to main.c
+  - Separated main.c into multiple functions
+  - Added handling of CTRL+C exceptions
+  - Get usernames into the prompt
 *** 11/17
 - Set up basic repository, initalized files
 - Young
