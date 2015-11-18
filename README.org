@@ -41,3 +41,5 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 - Set up basic repository, initalized files
 - Young
   - Set up PATH appearing before the '$' in the terminal prompt. 
+- Aaron
+  - Set up parse.h
