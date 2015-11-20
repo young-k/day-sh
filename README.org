@@ -37,6 +37,11 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 #+END_SRC
 
 ** Development Log
+*** 11/19
+- Derrick
+  - Worked on parse.c
+  - Set up basic structure of parse_input
+  - Set up trim function
 *** 11/18
 - Young
   - Added forking to main.c
