@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 
 
 char ** parse_commands(char *commands) {
@@ -49,23 +50,31 @@ int count_tokens(char *s1, char *delim) {
 }
 
 char* trim(char *s1) {
-  
+  char *pointer;
+	if (!s1)
+		return NULL;
+	if (!*s1)
+		return s1;
+	for (pointer = s1 + strlen(s1) - 1; (pointer >= s1) && isspace(*pointer); pointer--);
+	pointer[1] = '\0';
+	return s1;
+ 
 }
 
   
   
 int main() {
 
-  char asd[] = "this is a sentence";
-  printf("%d\n", count_tokens(asd," "));
+	char asd[] = "this is a sentence";
+	printf("%d\n", count_tokens(asd," "));
 
   
-  char test[] = "ls -a -l";
-  char *test1 = test;
-  char **test2 = parse_commands(test1);
-  int i;
-  for (i = 0; i < 14;i ++){
-    printf("%s\n", test2[i]);
-  }
-  return 0;
+	char test[] = "ls -a -l";
+	char *test1 = test;
+	char **test2 = parse_commands(test1);
+	int i;
+	for (i = 0; i < 14;i ++){
+		printf("%s\n", test2[i]);
+	}
+	return 0;
 }
