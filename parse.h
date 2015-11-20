@@ -15,6 +15,8 @@
  */
 char** parse_commands (char *) {}
 
+
+
 /*
  * Function Description:
  *   parse_inputs() takes in the raw input string from stdin and puts each
@@ -29,13 +31,15 @@ char** parse_commands (char *) {}
  */
 char** parse_inputs (char *) {}
 
+
+
 /*
  * Function Description:
  *   count_tokens() returns the number of times the character delimiter appears  
  *   in the string line
  *
  * Arguments:
-frCGFXX  *   char * string 
+ *   char * string 
  *   char * delimiter
  *
  * Return:
@@ -43,6 +47,8 @@ frCGFXX  *   char * string
  *
  */
 int count_tokens(char *, char*) {}
+
+
 
 /*
  * Function Description:
