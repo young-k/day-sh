@@ -9,7 +9,7 @@ char ** parse_commands(char *commands) {
   //first index would be count_tokens(commands, " ")
   int counter = 0;
   char **argray = abc;
-  commands = strsep(&commands, "\n");
+  
   while (commands) {
     argray[counter] = strsep(&commands, " ");
     counter++;
@@ -22,7 +22,8 @@ char ** parse_input(char *input) {
   char **output;
   //first index is count_tokens(input, ";")
   int counter = 0;
-  //Takes input and parses it
+  
+  input = strsep(&input, "\n");
   input[strlen(input) - 1] = '\0';
   char *command;
   char *commandarray[20];
