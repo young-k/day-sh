@@ -68,7 +68,9 @@ int main() {
 	char asd[] = "this is a sentence";
 	printf("%d\n", count_tokens(asd," "));
 
-  
+	char abc[] = "       asdfasldkf      qwrwertwe    ";
+	printf("%s\n", trim(abc));
+	
 	char test[] = "ls -a -l";
 	char *test1 = test;
 	char **test2 = parse_commands(test1);
