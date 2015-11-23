@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,24 +57,23 @@ char* trim(char *str) {
 }
 
 char** generate_array(int a, int b) {
-  printf("step 2");
+  printf("step 2\n");
   int i;
-  printf("step 3");
+  printf("step 3\n");
   char **output = (char **)malloc(a * sizeof(char *));
-  printf("p1");
   for (i = 0; i < a; i++ ) {
-    output[i] = (char *)malloc(b * sizeof(char));
+    output[i] = (char *)malloc(b * sizeof(char) + 1);
   }
   return output;
 }
 
-void parse_all(char* stdinput) {
-  commandarray = parse_input(stdinput);
-  int i;
-  for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
+/* void parse_all(char* stdinput) { */
+/*   commandarray = parse_input(stdinput); */
+/*   int i; */
+/*   for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) { */
     
-  }    
-}  
+/*   }     */
+/* }   */
 
   
 int main() {
@@ -85,30 +85,29 @@ int main() {
   // test for trim
   char abc[] = "       asdfasldkf      qwrwertwe    ";
   printf("[%s]\n", trim(abc));
-
   printf("end of trim\n");
   
   // test for generate_array
-  printf("step 1");
-  char **coolio = generate_array(4,3);
-  printf("step 4");
-  int i, j, count = 0;
+  printf("step 1\n");
+  char **coolio = generate_array(4,3); 
+  
+  coolio[0]={0,1,2};
+  coolio[1]={0,13,25};
+  coolio[2]={0,3,2};
+  coolio[3]={3,4,5};
+  
+  printf("step 4\n"); 
+  int i, j, count;
+  i = j = count = 0;
 
-  printf("test");
   for (i = 0; i < 4; i++) {
+    printf("%d \n", i);
     for (j = 0; j < 3; j++) {
-      *(coolio + i * 4 + j) = (char)count;
-      count++;
-    }
-  }
-
-  for (i = 0; i < 4; i++) {
-    for (j = 0; j < 3; j++) {
+      printf(" %d\n", j);
       printf("%s", *(coolio + i * 4 + j));
     }
   }
   
-
   /* 
   char test[] = "ls -a -l";
   char *test1 = test;

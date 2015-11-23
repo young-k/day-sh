@@ -37,6 +37,13 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 #+END_SRC
 
 ** Development Log
+*** 11/22
+- Aaron Wang
+  - added function that created 2D array
+  - fixed parse_input and parse_commands
+*** 11/20
+- Aaron Wang
+  - Worked on parse.c
 *** 11/19
 - Derrick
   - Worked on parse.c
