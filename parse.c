@@ -66,7 +66,15 @@ char** generate_array(int a, int b) {
   }
   return output;
 }
-  
+
+void parse_all(char* stdinput) {
+  commandarray = parse_input(stdinput);
+  int i;
+  for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
+    
+  }    
+}  
+
   
 int main() {
   
