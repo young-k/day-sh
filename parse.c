@@ -50,50 +50,35 @@ int count_tokens(char *s1, char *delim) {
 }
 
 char* trim(char *str) {
-	char *end;
-	while (isspace(*str)) str++;
-	if(*str == 0)
-		return str;
-	end = str + strlen(str) -1;
-	while(end>str && isspace(*end)) end--;
-
-	*(end+1) = 0;
-
-	return str;
- 
+  char *end;
+  while (isspace(*str)) str++;
+  if(*str == 0)
+    return str;
+  end = str + strlen(str) -1;
+  while(end>str && isspace(*end)) end--;
+  
+  *(end+1) = 0;
+  
+  return str;
 }
 
   
   
 int main() {
 
-	char asd[] = "this is a sentence";
-	printf("%d\n", count_tokens(asd," "));
-
-<<<<<<< HEAD
-	char abc[] = "       asdfasldkf      qwrwertwe    ";
-	printf("%s\n", trim(abc));
-	
-	char test[] = "ls -a -l";
-	char *test1 = test;
-	char **test2 = parse_commands(test1);
-	int i;
-	for (i = 0; i < 14;i ++){
-		printf("%s\n", test2[i]);
-	}
-	return 0;
-=======
-	char cool[] = "     trim     test     ";
-	printf("%s\n", trim(cool));
+  char asd[] = "this is a sentence";
+  printf("%d\n", count_tokens(asd," "));
   
-	/* char test[] = "ls -a -l"; */
-	/* char *test1 = test; */
-	/* char **test2 = parse_commands(test1); */
-	/* int i; */
-	/* for (i = 0; i < 14;i ++){ */
-	/* 	printf("%s\n", test2[i]); */
-	/* } */
-	/* return 0; */
-
->>>>>>> 4c7ced9d5fa7c88cce9642c1c7a6941363e643ef
+  
+  char abc[] = "       asdfasldkf      qwrwertwe    ";
+  printf("%s\n", trim(abc));
+  
+  char test[] = "ls -a -l";
+  char *test1 = test;
+  char **test2 = parse_commands(test1);
+  int i;
+  for (i = 0; i < 14;i ++){
+    printf("%s\n", test2[i]);
+  }
+  return 0;
 }
