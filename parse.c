@@ -6,10 +6,8 @@
 
 /*
 char ** parse_commands(char *commands) {
-  char **argray;
-  //first index would be count_tokens(commands, " ")
+  char **argray = generate_array(count_tokens(commands, " "), 10);
   int counter = 0;
-  char **argray = abc;
   
   while (commands) {
     argray[counter] = strsep(&commands, " ");
@@ -20,20 +18,14 @@ char ** parse_commands(char *commands) {
 }
 
 char ** parse_input(char *input) {
-  char **output;
-  //first index is count_tokens(input, ";")
+  char **commandarray = generate_array(count_tokens(input, ";"), 10);
   int counter = 0;
-  
+
+  // removes the newline character when you return
   input = strsep(&input, "\n");
-  input[strlen(input) - 1] = '\0';
-  char *command;
-  char *commandarray[20];
-  
-  command = input;
-  command = strsep(&command, "\n");
-	
-  while (command){
-    argray[counter] = strsep(&command, ";");
+
+  while (input){
+    argray[counter] = strsep(&input, ";");
     counter+=1;
   }
   argray[counter] = NULL;
