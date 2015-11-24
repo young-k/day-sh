@@ -63,3 +63,5 @@ int count_tokens(char *, char*) {}
  */
 char *trim(char *) {}
  
+
+char **generate_array(int, int) {}
