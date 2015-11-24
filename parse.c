@@ -44,7 +44,6 @@ char ** parse_input(char *input) {
   return commandarray;
 }
 
-
 int count_tokens(char *s1, char *delim) {
   int counter = 0;
   while (s1) {
@@ -67,13 +66,13 @@ char* trim(char *str) {
   return str;
 }
 
-/* void parse_all(char* stdinput) { */
-/*   commandarray = parse_input(stdinput); */
-/*   int i; */
-/*   for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) { */
-    
-/*   }     */
-/* }   */
+char** parse_all(char* stdinput) {
+  char **commandarray = parse_input(stdinput);
+  int i;
+  for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
+    //wait young for each of the commands in command array we need to fork a child process to run and this should be done in the main.c.
+  }
+}
 
   
 int main() {

@@ -64,4 +64,30 @@ int count_tokens(char *, char*) {}
 char *trim(char *) {}
  
 
+/*
+ * Function Description:
+ *   generate() creates an char ** or a two dimensional array of characters    
+ *
+ * Arguments:
+ *   int a
+ *   int b
+ *
+ * Return:
+ *   an array that is a by b
+ *
+ */
 char **generate_array(int, int) {}
+
+
+/*
+ * Function Description:
+ *    master parse function  
+ *
+ * Arguments:
+ *   char * rawinput
+ *
+ * Return:
+ *   array of arrays that are formatted for exevp
+ *
+ */
+void parse_all(char*) {}
