@@ -69,8 +69,9 @@ char** parse_all(char* stdinput) {
   char **commandarray = parse_input(stdinput);
   int i;
   for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
-    //wait young for each of the commands in command array we need to fork a child process to run and this should be done in the main.c.
+    commandarray[i] = (char *)parse_commands(commandarray[i]);
   }
+  return commandarray;
 }
 
   

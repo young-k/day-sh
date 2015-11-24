@@ -90,4 +90,4 @@ char **generate_array(int, int);
  *   array of arrays that are formatted for exevp
  *
  */
-void parse_all(char*);
+char **parse_all(char*);
