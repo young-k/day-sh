@@ -13,7 +13,7 @@
  *   char** of command and arguments
  *
  */
-char** parse_commands (char *) {}
+char** parse_commands (char *);
 
 
 
@@ -29,7 +29,7 @@ char** parse_commands (char *) {}
  *   char ** of commands
  *
  */
-char** parse_inputs (char *) {}
+char** parse_inputs (char *);
 
 
 
@@ -46,7 +46,7 @@ char** parse_inputs (char *) {}
  *   number of tokens in line separated by delim
  *
  */
-int count_tokens(char *, char*) {}
+int count_tokens(char *, char*);
 
 
 
@@ -61,7 +61,7 @@ int count_tokens(char *, char*) {}
  *   string without leading and trailing whitespace
  *
  */
-char *trim(char *) {}
+char *trim(char *);
  
 
 /*
@@ -76,7 +76,7 @@ char *trim(char *) {}
  *   an array that is a by b
  *
  */
-char **generate_array(int, int) {}
+char **generate_array(int, int);
 
 
 /*
@@ -90,4 +90,4 @@ char **generate_array(int, int) {}
  *   array of arrays that are formatted for exevp
  *
  */
-void parse_all(char*) {}
+void parse_all(char*);
