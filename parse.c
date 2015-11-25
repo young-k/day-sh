@@ -4,7 +4,9 @@
 #include <unistd.h>
 #include <ctype.h>
 
-char** generate_array(int a, int b) {
+
+
+char **generate_array(int a, int b) {
   int i;
   char **output = (char **)malloc(a * sizeof(char *));
   for (i = 0; i < a; i++ ) {
@@ -13,9 +15,9 @@ char** generate_array(int a, int b) {
   return output;
 }
 
-
-char ** parse_command(char *command) {
-  char **argray = (char **)generate_array(count_tokens(command, " ") + 1, 10);
+char argray[50][50];
+char **parse_command(char *command, char **argray) {
+  //char **argray = (char **)generate_array(count_tokens(command, " ") + 1, 10);
   int counter = 0;
   
   while (command) {
@@ -26,8 +28,9 @@ char ** parse_command(char *command) {
   return argray;
 }
 
-char ** parse_input(char *input) {
-  char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
+char commandarray[50][50];
+char **parse_input(char *input, char **commandarray) {
+  //char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
   int counter = 0;
 
   // removes the newline character when you return
@@ -110,17 +113,17 @@ char*** parse_all(char* stdinput) {
 
 int main() {
   char test[] = "ls -l;pwd";
-  char **parsed_input = parse_input(test);
+  char **parsed_input = parse_input(test, commandarray);
   int i;
-  printf("Should return ls -l: %s\n", parsed_input[0]);
-  printf("Should return pwd: %s\n", parsed_input[1]);
+  printf("Should return ls -l: %s\n", parsed_input[0], commandarray);
+  printf("Should return pwd: %s\n", parsed_input[1], commandarray);
   
   char test1[] = "ls -a -l";
-  char **parsed_command = parse_command(test1);
+  char **parsed_command = parse_command(test1, argray);
   
-  printf("Should return ls: %s\n", parsed_command[0]);
-  printf("Should return -a: %s\n", parsed_command[9]);
-  printf("Should return -l: %s\n", parsed_command[9]);
+  printf("Should return ls: %s\n", parsed_command[0], argray);
+  printf("Should return -a: %s\n", parsed_command[1], argray);
+  printf("Should return -l: %s\n", parsed_command[2], argray);
   
 
   return 0;
