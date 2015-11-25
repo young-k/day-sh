@@ -16,7 +16,7 @@ char **generate_array(int a, int b) {
 }
 
 char argray[50][50];
-char **parse_command(char *command, char **argray) {
+void parse_command(char *command, char **argray) {
   //char **argray = (char **)generate_array(count_tokens(command, " ") + 1, 10);
   int counter = 0;
   
@@ -25,11 +25,11 @@ char **parse_command(char *command, char **argray) {
     counter++;
   }
   argray[counter] = '\0';
-  return argray;
+  //return argray;
 }
 
 char commandarray[50][50];
-char **parse_input(char *input, char **commandarray) {
+void parse_input(char *input, char **commandarray) {
   //char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
   int counter = 0;
 
@@ -42,7 +42,7 @@ char **parse_input(char *input, char **commandarray) {
     counter+=1;
   }
   commandarray[counter] = '\0';
-  return commandarray;
+  //return commandarray;
 }
 
 int count_tokens(char *s1, char *delim) {
@@ -113,13 +113,13 @@ char*** parse_all(char* stdinput) {
 
 int main() {
   char test[] = "ls -l;pwd";
-  char **parsed_input = parse_input(test, commandarray);
+  parse_input(test, commandarray);
   int i;
-  printf("Should return ls -l: %s\n", parsed_input[0], commandarray);
-  printf("Should return pwd: %s\n", parsed_input[1], commandarray);
+  printf("Should return ls -l: %s\n", commandarry[0], commandarray);
+  printf("Should return pwd: %s\n", commandarray[1], commandarray);
   
   char test1[] = "ls -a -l";
-  char **parsed_command = parse_command(test1, argray);
+  parse_command(test1, argray);
   
   printf("Should return ls: %s\n", parsed_command[0], argray);
   printf("Should return -a: %s\n", parsed_command[1], argray);

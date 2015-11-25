@@ -25,17 +25,21 @@ void int_handler(){
 void run_command(char input[]){
   pid_t pid, status;
   size_t i;
+  /* commandarray is an array with each element is a complete command */
+  char commandarray[50][50];
+  /* argray is an array with each element an argument of the command */
+  char argrays[50][50];
+  char temp[50][50];
 
-  char** parsed_inputs = parse_all(input);
-  
-  printf("%d\n", sizeof(parsed_inputs)/sizeof(*parsed_inputs));
-
-  printf("Parsed Input[0]: %s", parsed_inputs[1]);
-
-  for( i = 0; i < sizeof(parsed_inputs)/sizeof(*parsed_inputs); i++ ){
+  parse_input(input,commandarray);
+  printf("%s\n",commandarray[0]);
+  printf("%s\n",commandarray[1]);
+  printf("%s\n",commandarray[2]);
+  for( i = 0; i < sizeof(commandarray)/sizeof(*commandarray); i++ ){
     pid = fork();
     if(pid == 0) {
-      execvp( parsed_inputs[i][0], parsed_inputs[i] );
+      parse_command(commandarray[i], temp);
+      execvp(temp[0], temp);
     } else if(pid < 0) {
       perror("Fork failed..?");
     } else {

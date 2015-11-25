@@ -15,7 +15,7 @@
  *   char** of command and arguments
  *
  */
-char** parse_command (char *);
+void parse_command (char *, char **);
 
 
 
@@ -31,7 +31,7 @@ char** parse_command (char *);
  *   char ** of commands
  *
  */
-char** parse_inputs (char *);
+void parse_inputs (char *, char **);
 
 
 
