@@ -4,8 +4,6 @@
 #include <unistd.h>
 #include <ctype.h>
 
-
-
 char** generate_array(int a, int b) {
   int i;
   char **output = (char **)malloc(a * sizeof(char *));
@@ -65,11 +63,11 @@ char* trim(char *str) {
   return str;
 }
 
-char** parse_all(char* stdinput) {
+char*** parse_all(char* stdinput) {
   char **commandarray = parse_input(stdinput);
   int i;
   for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
-    commandarray[i] = (char *)parse_commands(commandarray[i]);
+    commandarray[i] = (char **)parse_commands(commandarray[i]);
   }
   return commandarray;
 }
