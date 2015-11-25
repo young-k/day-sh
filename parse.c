@@ -75,27 +75,27 @@ char** parse_all(char* stdinput) {
 }
 
   
-int main() {
-  
-  // test for count_token
-  char asd[] = "this is a sentence";
-  printf("%d\n", count_tokens(asd," "));
-  
-  // test for trim
-  char abc[] = "       asdfasldkf      qwrwertwe    ";
-  printf("[%s]\n", trim(abc));
-  printf("end of trim\n");
-  
-  // test for generate_array
-
-  /* 
-  char test[] = "ls -a -l";
-  char *test1 = test;
-  char **test2 = parse_commands(test1);
-  int i;
-  for (i = 0; i < 14;i ++){
-    printf("%s\n", test2[i]);
-  }
-  */
-  return 0;
-}
+/* int main() {
+ *   
+ *   // test for count_token
+ *   char asd[] = "this is a sentence";
+ *   printf("%d\n", count_tokens(asd," "));
+ *   
+ *   // test for trim
+ *   char abc[] = "       asdfasldkf      qwrwertwe    ";
+ *   printf("[%s]\n", trim(abc));
+ *   printf("end of trim\n");
+ *   
+ *   // test for generate_array
+ * 
+ *   /\* 
+ *   char test[] = "ls -a -l";
+ *   char *test1 = test;
+ *   char **test2 = parse_commands(test1);
+ *   int i;
+ *   for (i = 0; i < 14;i ++){
+ *     printf("%s\n", test2[i]);
+ *   }
+ *   *\/
+ *   return 0;
+ * } */

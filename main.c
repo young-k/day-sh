@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <wait.h>
 #include <signal.h>
 
-// #include "parse.h"
+#include "parse.h"
 
 void int_handler(){
   printf("\nClosing day-sh...\n");
@@ -23,6 +24,24 @@ void int_handler(){
  */
 void run_command(char input[]){
   pid_t pid, status;
+  size_t i;
+
+  char** parsed_inputs = parse_all(input);
+  
+  printf("%d\n", sizeof(parsed_inputs)/sizeof(*parsed_inputs));
+
+  printf("Parsed Input[0]: %s", parsed_inputs[1]);
+
+  for( i = 0; i < sizeof(parsed_inputs)/sizeof(*parsed_inputs); i++ ){
+    pid = fork();
+    if(pid == 0) {
+      execvp( parsed_inputs[i][0], parsed_inputs[i] );
+    } else if(pid < 0) {
+      perror("Fork failed..?");
+    } else {
+      wait(&status);
+    }
+  }
 
   pid = fork();
   if(pid == 0) {		/* Child process */ 
