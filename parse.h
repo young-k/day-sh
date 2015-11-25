@@ -1,3 +1,5 @@
+#ifndef PARSE_H
+#define PARSE_H 
 
 /*
  * Function Description:
@@ -91,3 +93,4 @@ char **generate_array(int, int);
  *
  */
 char **parse_all(char*);
+#endif
