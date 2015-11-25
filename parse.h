@@ -15,7 +15,7 @@
  *   char** of command and arguments
  *
  */
-char** parse_commands (char *);
+char** parse_command (char *);
 
 
 

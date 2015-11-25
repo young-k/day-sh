@@ -14,30 +14,31 @@ char** generate_array(int a, int b) {
 }
 
 
-char ** parse_commands(char *commands) {
-  char **argray = (char **)generate_array(count_tokens(commands, " "), 10);
+char ** parse_command(char *command) {
+  char **argray = (char **)generate_array(count_tokens(command, " ") + 1, 10);
   int counter = 0;
   
-  while (commands) {
-    argray[counter] = strsep(&commands, " ");
+  while (command) {
+    argray[counter] = strsep(&command, " ");
     counter++;
   }
-  argray[counter] = NULL;
+  argray[counter] = '\0';
   return argray;
 }
 
 char ** parse_input(char *input) {
-  char **commandarray = (char **)generate_array(count_tokens(input, ";"), 10);
+  char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
   int counter = 0;
 
   // removes the newline character when you return
   input = strsep(&input, "\n");
-
+  input = strsep(&input, "\r");
+  
   while (input){
     commandarray[counter] = strsep(&input, ";");
     counter+=1;
   }
-  commandarray[counter] = NULL;
+  commandarray[counter] = '\0';
   return commandarray;
 }
 
@@ -63,15 +64,24 @@ char* trim(char *str) {
   return str;
 }
 
+/*
 char*** parse_all(char* stdinput) {
-  char **commandarray = parse_input(stdinput);
-  int i;
+  char ***commandarray = (char ***)malloc((count_tokens(stdinput, ";")+1) * sizeof(char **));
+  int i,j;
+  for (i = 0; i < count_tokens(stdinput, ";") + 1; i ++) {
+    commandarray[i] = (char **)malloc(32 * sizeof(char *));
+    for (j = 0; j < 10; j ++) {
+      commandarray[i][j] = (char *)malloc(32 * sizeof(char *));
+    }
+  } 
+    
+  char **commands = parse_input(stdinput);
   for (i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++) {
-    commandarray[i] = (char **)parse_commands(commandarray[i]);
+    (char **)commandarray[i] = (char **)parse_command(commandarray[i]);
   }
   return commandarray;
 }
-
+*/ 
   
 /* int main() {
  *   
@@ -97,3 +107,21 @@ char*** parse_all(char* stdinput) {
  *   *\/
  *   return 0;
  * } */
+
+int main() {
+  char test[] = "ls -l;pwd";
+  char **parsed_input = parse_input(test);
+  int i;
+  printf("Should return ls -l: %s\n", parsed_input[0]);
+  printf("Should return pwd: %s\n", parsed_input[1]);
+  
+  char test1[] = "ls -a -l";
+  char **parsed_command = parse_command(test1);
+  
+  printf("Should return ls: %s\n", parsed_command[0]);
+  printf("Should return -a: %s\n", parsed_command[9]);
+  printf("Should return -l: %s\n", parsed_command[9]);
+  
+
+  return 0;
+}
