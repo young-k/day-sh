@@ -26,10 +26,9 @@ void run_command(char input[]){
   pid_t pid, status;
   size_t i;
   /* commandarray is an array with each element is a complete command */
-  char commandarray[50][50];
+  char *commandarray[50];
   /* argray is an array with each element an argument of the command */
-  char argrays[50][50];
-  char temp[50][50];
+  char *argray[50];
 
   parse_input(input,commandarray);
   printf("%s\n",commandarray[0]);
@@ -38,8 +37,8 @@ void run_command(char input[]){
   for( i = 0; i < sizeof(commandarray)/sizeof(*commandarray); i++ ){
     pid = fork();
     if(pid == 0) {
-      parse_command(commandarray[i], temp);
-      execvp(temp[0], temp);
+      parse_command(commandarray[i], argray);
+      execvp(argray[0], argray);
     } else if(pid < 0) {
       perror("Fork failed..?");
     } else {

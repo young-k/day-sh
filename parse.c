@@ -67,20 +67,20 @@ char* trim(char *str) {
   return str;
 }
 
-int main() {
-  char test[] = "ls -l;pwd";
-  parse_input(test, commandarray);
-  int i;
-  printf("Should return ls -l: %s\n", commandarray[0]);
-  printf("Should return pwd: %s\n", commandarray[1]);
+/* int main() { */
+/*   char test[] = "ls -l;pwd"; */
+/*   parse_input(test, commandarray); */
+/*   int i; */
+/*   printf("Should return ls -l: %s\n", commandarray[0]); */
+/*   printf("Should return pwd: %s\n", commandarray[1]); */
   
-  char test1[] = "ls -a -l";
-  parse_command(test1, argray);
+/*   char test1[] = "ls -a -l"; */
+/*   parse_command(test1, argray); */
   
-  printf("Should return ls: %s\n", argray[0]);
-  printf("Should return -a: %s\n", argray[1]);
-  printf("Should return -l: %s\n", argray[2]);
+/*   printf("Should return ls: %s\n", argray[0]); */
+/*   printf("Should return -a: %s\n", argray[1]); */
+/*   printf("Should return -l: %s\n", argray[2]); */
   
 
-  return 0;
-}
+/*   return 0; */
+/* } */
