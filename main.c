@@ -25,13 +25,14 @@ void int_handler(){
 void run_command(char input[]){
   pid_t pid, status;
   size_t i;
+  int num_commands = stringExist(input, ";") + 1;
   /* commandarray is an array with each element is a complete command */
-  char *commandarray[50];
+  char *commandarray[num_commands];
   /* argray is an array with each element an argument of the command */
   char *argray[50];
   
   parse_input(input,commandarray);
-
+  
   for( i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++ ){
     pid = fork();
     parse_command(commandarray[i], argray);
@@ -40,26 +41,13 @@ void run_command(char input[]){
     } else if(pid < 0) {
       perror("Fork failed..?");
     } else {
-      printf("argray[0] %s\n", argray[0]);
-      if(argray[0] && argray[1] && strcmp(argray[0],"cd") == 0){
+      if(argray[0] && strcmp(argray[0],"cd") == 0){
 	printf("here\n");
-	printf("argray: %s\n",argray[1]);
-	int ret = chdir("..");
-	printf("%d\n", ret);
+	chdir("..");
       }
       wait(&status);
     }
   }
-
-  pid = fork();
-  if(pid == 0) {		/* Child process */ 
-    //Call main parse function here
-  } else if(pid < 0) {		/* Error */
-    perror("Fork failed.");
-  } else {			/* Parent process */
-    wait(&status);
-  }
-  
 }
 
 /*

@@ -4,7 +4,20 @@
 #include <unistd.h>
 #include <ctype.h>
 
+int stringExist( char *string, char *sub )
+{
+  int count = 0;
 
+  while( *string )
+    {
+      char *a = string, *b = sub;
+      while( *a && *a == *b ) {a++;b++;}
+      count += !*b;
+      ++string;
+    }
+
+  return count;
+}
 
 /* char **generate_array(int a, int b) { */
 /*   int i; */
@@ -30,7 +43,6 @@ void parse_command(char *command, char **argray) {
 
 //char *commandarray[50];
 void parse_input(char *input, char **commandarray) {
-  //char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
   int counter = 0;
 
   // removes the newline character when you return
