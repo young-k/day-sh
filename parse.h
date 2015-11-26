@@ -3,7 +3,7 @@
 
 /*
  * Function Description:
- *   parse_commands() takes in a string of a single command with command line
+ *   parse_command() takes in a string of a single command with command line
  *   arguments and puts it in a char * array with the first element being the
  *   command and the following elements are the arguments. The last element
  *   of the array is NULL

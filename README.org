@@ -1,6 +1,10 @@
 * day-sh
 Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 
+** TODO
+- Try and implement tab completion?
+- cd, piping, and redirection
+- aliases?
 ** Guidelines 
 
 #+BEGIN_SRC C

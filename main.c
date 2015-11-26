@@ -29,19 +29,24 @@ void run_command(char input[]){
   char *commandarray[50];
   /* argray is an array with each element an argument of the command */
   char *argray[50];
-
   
   parse_input(input,commandarray);
-  
-  for( i = 0; i < 10; i++ ){
+
+  for( i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++ ){
     pid = fork();
+    parse_command(commandarray[i], argray);
     if(pid == 0) {
-      parse_command(commandarray[i], argray);
       execvp(argray[0], argray);
-      //do i need to free argray
     } else if(pid < 0) {
       perror("Fork failed..?");
     } else {
+      printf("argray[0] %s\n", argray[0]);
+      if(argray[0] && argray[1] && strcmp(argray[0],"cd") == 0){
+	printf("here\n");
+	printf("argray: %s\n",argray[1]);
+	int ret = chdir("..");
+	printf("%d\n", ret);
+      }
       wait(&status);
     }
   }
