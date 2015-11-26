@@ -8,7 +8,6 @@
 #include "parse.h"
 
 void int_handler(){
-  printf("\nClosing day-sh...\n");
   exit(0);
 }
 
@@ -37,14 +36,13 @@ void run_command(char input[]){
   for( i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++ ){
     parse_command(commandarray[i], argray);
     if (strcmp(argray[0], "cd") == 0) {
-  	chdir(argray[1]);
+      if(chdir(argray[1]) != 0) perror("day-sh");
     }
     pid = fork();
     if(pid == 0) {
       execvp(argray[0], argray);
-    }
-    else if (pid < 0) {
-      perror("Fork failed..?");
+    } else if (pid < 0) {
+      perror("day-sh");
     }
     wait(&status);
   }
