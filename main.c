@@ -33,22 +33,23 @@ void run_command(char input[]){
   
   parse_input(input,commandarray);
   
+  
   for( i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++ ){
-    pid = fork();
     parse_command(commandarray[i], argray);
+    if (strcmp(argray[0], "cd") == 0) {
+  	chdir(argray[1]);
+    }
+    pid = fork();
     if(pid == 0) {
       execvp(argray[0], argray);
-    } else if(pid < 0) {
-      perror("Fork failed..?");
-    } else {
-      if(argray[0] && strcmp(argray[0],"cd") == 0){
-	printf("here\n");
-	chdir("..");
-      }
-      wait(&status);
     }
+    else if (pid < 0) {
+      perror("Fork failed..?");
+    }
+    wait(&status);
   }
 }
+
 
 /*
  * Function Description:
