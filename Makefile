@@ -1,9 +1,8 @@
 all: main.c
-	gcc main.c parse.c -o day-sh
+	gcc parse.c main.c
 
 clean:
-	rm *.out
 	rm *~
 
 run:
-	./day-sh
+	./a.out
