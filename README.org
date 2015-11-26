@@ -41,6 +41,12 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 #+END_SRC
 
 ** Development Log
+*** 11/25
+- Aaron
+  - Fixed cd
+- Young
+  - Started work on cd
+  - Added error messages with perror() for cd
 *** 11/22
 - Aaron Wang
   - added function that created 2D array
