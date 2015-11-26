@@ -6,16 +6,16 @@
 
 
 
-char **generate_array(int a, int b) {
-  int i;
-  char **output = (char **)malloc(a * sizeof(char *));
-  for (i = 0; i < a; i++ ) {
-    output[i] = (char *)malloc(b * sizeof(char) + 1);
-  }
-  return output;
-}
+/* char **generate_array(int a, int b) { */
+/*   int i; */
+/*   char **output = (char **)malloc(a * sizeof(char *)); */
+/*   for (i = 0; i < a; i++ ) { */
+/*     output[i] = (char *)malloc(b * sizeof(char) + 1); */
+/*   } */
+/*   return output; */
+/* } */
 
-char *argray[50];
+//char *argray[50];
 void parse_command(char *command, char **argray) {
   //char **argray = (char **)generate_array(count_tokens(command, " ") + 1, 10);
   int counter = 0;
@@ -28,7 +28,7 @@ void parse_command(char *command, char **argray) {
   //return argray;
 }
 
-char *commandarray[50];
+//char *commandarray[50];
 void parse_input(char *input, char **commandarray) {
   //char **commandarray = (char **)generate_array(count_tokens(input, ";") + 1, 10);
   int counter = 0;
