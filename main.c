@@ -30,12 +30,10 @@ void run_command(char input[]){
   /* argray is an array with each element an argument of the command */
   char *argray[50];
 
-  //printf("%s\n",input);
+  
   parse_input(input,commandarray);
-  //printf("%s\n",commandarray[0]);
-  //printf("%s\n",commandarray[1]);
-  //printf("%s\n",commandarray[2]);
-  for( i = 0; i < 2; i++ ){
+  
+  for( i = 0; i < 10; i++ ){
     pid = fork();
     if(pid == 0) {
       parse_command(commandarray[i], argray);
