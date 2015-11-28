@@ -41,6 +41,9 @@ Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 #+END_SRC
 
 ** Development Log
+*** 11/28
+- Young
+  - Finished and fully tested redirection.
 *** 11/25
 - Aaron
   - Fixed cd

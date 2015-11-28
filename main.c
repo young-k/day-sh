@@ -27,24 +27,51 @@ void int_handler(){
 void redirect(char *argray[]){
   int in;
   int out;
-  char *execute[] = {argray[0], argray[1], NULL};
+  char *execute[8];
 
-  int length = sizeof(argray)/sizeof(argray[0]);
+  int i;
+  int length = 0;
 
-  if(strcmp(argray[2], ">") == 0){
-    out = creat(argray[3], 0644);
+  while(argray[length]){
+    if(strcmp(argray[length], ">") == 0 || strcmp(argray[length], "<") == 0){
+      i = length;
+      break;
+    }
+    length++;
+  }
+
+  length = 0;
+
+  while(argray[length] != NULL) length++;
+
+  int k;
+  
+  for(k = 0; k < i; k++){
+    execute[k] = argray[k];
+  }
+
+  execute[i] = NULL;
+
+  /* 
+   * length: length of the argument array
+   * i: index of where the first < or > is
+   * k: temp variable to copy what needs to be executed into execute[]
+   */
+
+  if(strcmp(argray[i], ">") == 0){
+    out = creat(argray[i+1], 0644);
     dup2(out, STDOUT_FILENO);
   } else { 			/* if it is not >, we can assume it is < */
-    in = open(argray[3], O_RDONLY, 0);
+    in = open(argray[i+1], O_RDONLY, 0);
     dup2(in, STDIN_FILENO);
   }
 
-  if(length > 4){		/* if there is a second redirection */
-    if(strcmp(argray[4], ">") == 0){
-      out = creat(argray[5], 0644);
+  if(length > i+2){		/* if there is a second redirection */
+    if(strcmp(argray[i+2], ">") == 0){
+      out = creat(argray[i+3], 0644);
       dup2(out, STDOUT_FILENO);
     } else {			/* same assumption */
-      in = open(argray[5], O_RDONLY, 0);
+      in = open(argray[i+3], O_RDONLY, 0);
       dup2(in, STDIN_FILENO);
     }
   }
@@ -76,6 +103,8 @@ void run_command(char input[]){
   
   
   for( i = 0; i < sizeof(commandarray)/sizeof(commandarray[0]); i++ ){
+    char fullcommand[256];
+    strcpy(fullcommand, commandarray[i]);
     parse_command(commandarray[i], argray);
     
     if (strcmp(argray[0], "cd") == 0) { /* Dealing with cd */
@@ -85,16 +114,13 @@ void run_command(char input[]){
     pid = fork();
     
     if(pid == 0) {		/* Child Process */
-      /* 
+      /*
        * If both < and > are in the string we are looking at, then simply execute the command.
        * Else, call the redirection function. 
        */
-      /* if(strchr(argray[1], '>') == NULL && strchr(argray[1], '<') == NULL){ 
-       * 	printf("argray: %s\n", commandarray[i]);
-       * 	printf("Hello\n"); */
-	execvp(argray[0], argray);
-	// }
-	//else redirect(argray);
+      if(strchr(fullcommand, '>') == NULL && strchr(fullcommand, '<') == NULL) execvp(argray[0], argray);
+      else redirect(argray);
+
     } else if (pid < 0) {	/* Error */
       perror("day-sh");
     }
