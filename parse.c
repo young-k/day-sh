@@ -19,6 +19,20 @@ int stringExist( char *string, char *sub )
   return count;
 }
 
+
+char* trim(char *str) {
+  char *end;
+  while (isspace(*str)) str++;
+  if(*str == 0)
+    return str;
+  end = str + strlen(str) -1;
+  while(end>str && isspace(*end)) end--;
+  
+  *(end+1) = 0;
+  
+  return str;
+}
+
 /* char **generate_array(int a, int b) { */
 /*   int i; */
 /*   char **output = (char **)malloc(a * sizeof(char *)); */
@@ -50,6 +64,7 @@ void parse_input(char *input, char **commandarray) {
   
   while (input){
     commandarray[counter] = strsep(&input, ";");
+    commandarray[counter] = trim(commandarray[counter]);
     counter+=1;
   }
   commandarray[counter] = '\0';
@@ -63,19 +78,6 @@ int count_tokens(char *s1, char *delim) {
     counter += 1;
   }
   return counter;
-}
-
-char* trim(char *str) {
-  char *end;
-  while (isspace(*str)) str++;
-  if(*str == 0)
-    return str;
-  end = str + strlen(str) -1;
-  while(end>str && isspace(*end)) end--;
-  
-  *(end+1) = 0;
-  
-  return str;
 }
 
 /* int main() { */
