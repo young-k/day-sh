@@ -41,7 +41,6 @@ void parse_command(char *command, char **argray) {
   //return argray;
 }
 
-//char *commandarray[50];
 void parse_input(char *input, char **commandarray) {
   int counter = 0;
 
