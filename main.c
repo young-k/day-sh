@@ -118,8 +118,8 @@ void run_command(char input[]){
        * If both < and > are in the string we are looking at, then simply execute the command.
        * Else, call the redirection function. 
        */
-      if(strchr(fullcommand, '>') == NULL && strchr(fullcommand, '<') == NULL) execvp(argray[0], argray);
-      else redirect(argray);
+      if(strchr(fullcommand, '>') != NULL || strchr(fullcommand, '<') != NULL) redirect(argray);
+      else execvp(argray[0], argray);
 
     } else if (pid < 0) {	/* Error */
       perror("day-sh");
