@@ -25,8 +25,7 @@ void int_handler(){
  *
  */
 void mypipe(char * argray[]){
-	int out;
-	char *execute[8];
+        char *execute[8];
 	char *execute2[8];
 
 	int i;
@@ -57,6 +56,9 @@ void mypipe(char * argray[]){
 	 * i: index of where the first | is
 	 */
 
+	printf("here3\n");
+	printf("%s", execute[0]);
+
 	if(strcmp(argray[i], "|") == 0){
 		for(k=i+1;k<length;k++){
 			execute2[k] = argray[k]; 
@@ -66,7 +68,6 @@ void mypipe(char * argray[]){
 	// execute2 should have the arguments on the right side of the pipe
 	execute2[length] = NULL;
 
-	
 	int pfds[2];
 
 	pipe(pfds);
@@ -76,16 +77,14 @@ void mypipe(char * argray[]){
 		dup(pfds[1]);   /* make stdout same as pfds[1] */
 		close(pfds[0]); /* we don't need this */
 		execvp(execute[0],execute);
+		perror("day-sh");
 	} else {
 		close(0);       /* close normal stdin */
 		dup(pfds[0]);   /* make stdin same as pfds[0] */
 		close(pfds[1]); /* we don't need this */
 		execvp(execute2[0],execute2);
+		perror("day-sh");
 	}
-}
-
-execvp(execute[0], execute);
-perror("day-sh");
 }
 
 void redirect(char *argray[]){
@@ -123,6 +122,7 @@ void redirect(char *argray[]){
 	 */
 
 	if(strcmp(argray[i], ">") == 0){
+	        out = creat(argray[i+1], 0644);
 		dup2(out, STDOUT_FILENO);
 	} else { 			/* if it is not >, we can assume it is < */
 		in = open(argray[i+1], O_RDONLY, 0);
@@ -181,8 +181,15 @@ void run_command(char input[]){
 			 * If both < and > are in the string we are looking at, then simply execute the command.
 			 * Else, call the redirection function. 
 			 */
-			if(strchr(fullcommand, '>') != NULL || strchr(fullcommand, '<') != NULL) redirect(argray); //DERRICK ADD YOUR ELSE IF ON THE FOLLOWING LINE
-			else execvp(argray[0], argray);
+		  if(strchr(fullcommand, '>') == NULL && strchr(fullcommand, '<') == NULL && strchr(fullcommand, '|') == NULL){
+		    execvp(argray[0], argray);
+		  }
+		  else if (strchr(fullcommand, '|') == NULL) {
+		    redirect(argray);
+		  }
+		  else {
+		    mypipe(argray);
+		  }
 
 		} else if (pid < 0) {	/* Error */
 			perror("day-sh");
