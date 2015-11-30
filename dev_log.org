@@ -1,0 +1,34 @@
+** Development Log
+*** 11/28
+- Young
+  - Finished and fully tested redirection.
+*** 11/25
+- Aaron
+  - Fixed cd
+- Young
+  - Started work on cd
+  - Added error messages with perror() for cd
+*** 11/22
+- Aaron Wang
+  - added function that created 2D array
+  - fixed parse_input and parse_commands
+*** 11/20
+- Aaron Wang
+  - Worked on parse.c
+*** 11/19
+- Derrick
+  - Worked on parse.c
+  - Mostly finished parse_input
+  - Finished trim function
+*** 11/18
+- Young
+  - Added forking to main.c
+  - Separated main.c into multiple functions
+  - Added handling of CTRL+C exceptions
+  - Get usernames into the prompt
+*** 11/17
+- Set up basic repository, initalized files
+- Young
+  - Set up PATH appearing before the '$' in the terminal prompt. 
+- Aaron
+  - Set up parse.h
