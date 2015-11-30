@@ -1,0 +1,100 @@
+
+Files and Function Headers:
+
+parse.c
+	parses the input
+
+void parse_command (char *, char **);
+/*	
+ * Function Description:
+ *   parse_command() takes in a string of a single command with command line
+ *   arguments and puts it in a char * array with the first element being the
+ *   command and the following elements are the arguments. The last element
+ *   of the array is NULL
+ *
+ * Arguments:
+ *   char * of a single command line
+ *   char ** of where the command and arguments will go
+ *
+ * Return Value:
+ *   void
+ *
+ */
+
+void parse_inputs (char *, char **);
+/*
+ * Function Description:
+ *   parse_inputs() takes in the raw input string from stdin and puts each
+ *   command separated by a semicolon in to an array of commands
+ *
+ * Arguments:
+ *   char * of the raw input
+ *   char ** of the individual commands
+ *
+ * Return:
+ *   void
+ *
+ */
+
+int count_tokens(char *, char*);
+/*
+ * Function Description:
+ *   count_tokens() returns the number of times the character delimiter appears
+ *   in the string line
+ *
+ * Arguments:
+ *   char * string
+ *   char * delimiter
+ *
+ * Return:
+ *   number of tokens in line separated by delim
+ *
+ */
+
+char *trim(char *);
+/*
+ * Function Description:
+ *   trim() removes leading and trailing whitespace of the string
+ *
+ * Arguments:
+ *   char *string
+ *
+ * Returns:
+ *   string without leading and trailing whitespace
+ *
+ */
+
+
+main.c
+	handles redirection and piping, runs the shell
+
+void run_command();
+/*
+ * Function Description:
+ *   Fork the child and run the command, while the parent waits,
+ *
+ * Arguments:
+ *   char [] (input that user entered)
+ *
+ * Return:
+ *   void
+ */
+
+void print_cwd(char *);
+/*
+ * Function Description:
+ *   Prints the shell prompt, replacing the HOME path with '~'.
+ *
+ * Arguments:
+ *   char * (path of HOME)
+ *
+ * Return:
+ *   void (prints cwd)
+ */
+
+void loop();
+/*
+ * Function Description:
+ *   The basic while loop of the function.
+ *   while(True) is not used so that CTRL+C can be handled by the program.
+ *   Deals with parsing input and pri
