@@ -195,7 +195,6 @@ void run_command(char input[]){
 			 */
 		  if(strchr(fullcommand, '>') == NULL && strchr(fullcommand, '<') == NULL && strchr(fullcommand, '|') == NULL){
 		    execvp(argray[0], argray);
-		    perror("day-sh");
 		  }
 		  else if (strchr(fullcommand, '|') == NULL) {
 		    redirect(argray);
