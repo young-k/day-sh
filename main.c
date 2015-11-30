@@ -173,6 +173,18 @@ void run_command(char input[]){
 		if (strcmp(argray[0], "cd") == 0) { /* Dealing with cd */
 			if(chdir(argray[1]) != 0) perror("day-sh");
 		}
+
+		else if (strcmp(argray[0], "exit") == 0) {
+		  exit(0);
+		}
+
+		else if (strcmp(argray[0], "help") == 0) {
+		  printf("day-sh is a terminal written in c, developed by Aaron Wang, Young Kim, and Derrick Lui.\n"
+			 "Implemented features:\n"
+			 "\t cd: since cd cannot be ran inside of a child process.\n"
+			 "\t help: displays a short blurb on features.\n"
+			 "\t exit: exits day-sh\n");
+		}
     
 		pid = fork();
     
