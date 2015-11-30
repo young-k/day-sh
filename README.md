@@ -12,6 +12,9 @@ The shell is pretty basic, with implemented features being:
 - Redirection
 - Piping
 - CTRL+C handling 
+- exit
+- cd
+- help
 
 ---
 
