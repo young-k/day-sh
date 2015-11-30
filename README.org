@@ -1,41 +1,31 @@
 * day-sh
+
 Shell written in C by Young Kim, Derrick Lui, Aaron Wang
 
-** TODO
-- Try and implement tab completion?
-- cd, piping, and redirection
-- aliases?
-** Guidelines 
+---
 
-#+BEGIN_SRC C
-/*
- * MULTILINE comments should be done in the following way:
- */
- 
- /* SINGLE LINE comments should be done like this, using EMACS' "M + ;" /*
+## Description
 
-/*
- * Function Description:
- *    --Insert--
- *
- * Arguments:
- *    --Insert--
- *
- * Return Value:
- *    --Insert-- 
- */
- 
- int main() { /* Notice the space between ") and {" */
-  if (True) {
-    printf("hey");
-  } else if (False) {
-    printf("aaron wonga");
-  } else {
-    printf("haha");
-  }
- }
- 
- /* IF statements that are 1 line should be written on one line; ex: */
- 
- if (True) printf("hey");
-#+END_SRC
+The shell is pretty basic, with implemented features being:
+- Execution of single line commands
+- Splitting of commands on the ';' character
+- Redirection
+- Piping
+- CTRL+C handling 
+
+---
+
+## Usage
+
+To install:
+```sh
+git clone git@github.com:young-k/day-sh.git
+```
+
+To run: 
+
+```sh
+make
+make run
+```
+
